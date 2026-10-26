@@ -1,0 +1,11 @@
+.ra-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 14px; align-items: start; }
+@media (max-width: 860px) { .ra-grid { grid-template-columns: minmax(0, 1fr); } }
+.ra-box { min-height: 360px; max-height: 520px; overflow: auto; }
+textarea.ra-box { font-size: 16px; line-height: 1.75; }
+.ra-reader { font-family: var(--font); font-size: 17px; line-height: 1.85; white-space: pre-wrap; }
+.ra-reader .sent { background: var(--accent-soft); border-radius: 4px; }
+.ra-reader mark { background: var(--accent); color: var(--accent-ink); border-radius: 4px; padding: 0 2px; margin: 0 -2px; }
+.ra-progress { height: 4px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.ra-progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 200ms linear; }
+.ra-note { margin: 0; }
+#play { min-width: 128px; }

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Read Aloud — Free Text to Speech with Your Device's Voices | S3eidat Tools</title>
+<meta name="description" content="Paste text and hear it read aloud with the voices on your device, including Arabic voices when available. Pick voice, speed, pitch and volume; follow along with word highlighting. Free and private.">
+<meta property="og:title" content="Read Aloud — free, private text to speech">
+<meta property="og:description" content="Text to speech with any voice on your device, with word highlighting. Runs in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="read-aloud">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Read Aloud</h1>
+    <p>Paste any text and listen. The words light up as they are spoken. Voices come from your own device, so what you hear depends on your system and browser.</p>
+  </section>
+
+  <div class="ra-grid">
+    <section class="card">
+      <div class="row between">
+        <h2>Text</h2>
+        <div class="row">
+          <button class="btn ghost small" id="sample">Sample</button>
+          <button class="btn ghost small" id="clear"><svg class="i"><use href="#i-trash"/></svg>Clear</button>
+        </div>
+      </div>
+      <label for="input" class="faint" id="hint">Reading starts at the cursor, or from the top.</label>
+      <textarea class="textarea prose ra-box mt" id="input" dir="auto" placeholder="Paste or type the text you want to hear…"></textarea>
+      <div class="out ra-box ra-reader mt" id="reader" dir="auto" tabindex="0" hidden></div>
+      <div class="ra-progress mt" aria-hidden="true"><span id="bar"></span></div>
+      <div class="row mt">
+        <button class="btn primary big" id="play"><svg class="i"><use href="#i-play"/></svg><span>Play</span></button>
+        <button class="btn big" id="stop" disabled><svg class="i"><use href="#i-x"/></svg>Stop</button>
+        <span class="grow"></span>
+        <span class="chip" id="status">Ready</span>
+      </div>
+    </section>
+
+    <section class="card stack">
+      <h2>Voice</h2>
+      <label class="field">Language
+        <select class="select" id="lang"></select>
+      </label>
+      <label class="field">Voice
+        <select class="select" id="voice"></select>
+      </label>
+      <label class="check"><input type="checkbox" id="online"> Include online voices</label>
+      <p class="faint ra-note" id="onlineNote">Online voices (like “Google …” or “… Online”) send the text to the voice provider to be spoken. They are off by default so your text stays on this device.</p>
+      <label class="field"><span class="row between">Speed <b class="mono" id="rateV">1.0×</b></span>
+        <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+      </label>
+      <label class="field"><span class="row between">Pitch <b class="mono" id="pitchV">1.0</b></span>
+        <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+      </label>
+      <label class="field"><span class="row between">Volume <b class="mono" id="volumeV">100%</b></span>
+        <input type="range" id="volume" min="0" max="1" step="0.05" value="1">
+      </label>
+      <p class="faint ra-note" id="voiceNote"></p>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
